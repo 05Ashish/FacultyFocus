@@ -33,6 +33,34 @@ const userDataSchema = new mongoose.Schema({
   dob: {
     type: String,
   },
+  research: {
+    type: [String],
+    default: [],
+  },
+  projects: {
+    type: [String],
+    default: [],
+  },
+  subjectstaught: {
+    type: [String],
+    default: [],
+  },
+  courseaddition: {
+    type: [String],
+    default: [],
+  },
+  teachingmethods: {
+    type: [String],
+    default: [],
+  },
+  percentage: {
+    type: [String],
+    default: [],
+  },
+  other: {
+    type: [String],
+    default: [],
+  },
 });
 
 const userDataModel =

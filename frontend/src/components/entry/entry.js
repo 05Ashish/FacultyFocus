@@ -2,27 +2,70 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./entry.css";
 
-export default function Entry() {
+export default function Entry({ userData, setUserData, setcurrState }) {
   const [selectedFramework, setSelectedFramework] = useState("Select");
   const [isOpen, setIsOpen] = useState(false);
   const [toastVisible, setToastVisible] = useState(false); // State to control the visibility of the toast
 
+  const [heading, setHeading] = useState("");
+  // const [research, setResearch] = useState(userData.research);
+  // const [projects, setProjects] = useState(userData.projects);
+  // const [subjectstaught, setSubjectsTaught] = useState(userData.subjectstaught);
+  // const [courseaddition, setCourseAddition] = useState(userData.courseaddition);
+  // const [teachingmethods, setTeachingMethods] = useState(
+  //   userData.teachingmethods
+  // );
+  // const [percentage, setPercentage] = useState(userData.percentage);
+  // const [other, setOther] = useState(userData.other);
+
   const frameworks = [
+    "Addition in course",
+    "Avg % of your class",
+    "Projects Led",
     "Research",
-    "Project",
-    "Publication",
-    "Achievement",
-    "Other",
+    "Subjects Taught",
+    "Teaching Methods Adopted",
+    "Other Achievements",
   ];
 
-  const handleSubmit = () => {
-    // Display the toast when Submit is clicked
-    setToastVisible(true);
+  const frameworkMapping = {
+    "Addition in course": "courseaddition",
+    "Avg % of your class": "percentage",
+    "Projects Led": "projects",
+    Research: "research",
+    "Subjects Taught": "subjectstaught",
+    "Teaching Method Adopted": "teachingmethods",
+    "Any Achievement": "other",
+  };
 
+  const handleSubmit = async () => {
+    // Display the toast when Submit is clicked
+    const fieldName = frameworkMapping[selectedFramework];
+    const response = await fetch("http://localhost:8000/user-add-entry", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: userData.email,
+        field: fieldName,
+        heading: heading,
+      }),
+    });
+    const data = await response.json();
+    if (data.success) {
+      setUserData((prevData) => ({
+        ...prevData,
+        [fieldName]: [...prevData[fieldName], heading], // Append to state
+      }));
+    }
+    setUserData(userData);
+    setToastVisible(true);
     // Hide the toast after 3 seconds
     setTimeout(() => {
       setToastVisible(false);
-    }, 5000);
+      setcurrState("Profile");
+    }, 3000);
   };
 
   return (
@@ -84,12 +127,12 @@ export default function Entry() {
             {/* Heading Input */}
             <div className="input-group">
               <label htmlFor="name">Heading</label>
-              <input id="name" type="text" placeholder="Heading" />
-            </div>
-            {/* Description Input */}
-            <div className="input-group">
-              <label htmlFor="name">Description</label>
-              <input id="name" type="text" placeholder="Describe your work" />
+              <input
+                id="name"
+                type="text"
+                placeholder="Heading"
+                onChange={(e) => setHeading(e.target.value)}
+              />
             </div>
           </form>
         </motion.div>

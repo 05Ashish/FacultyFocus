@@ -43,57 +43,145 @@ export default function Profile({ email, setcurrState, setUserData }) {
           <p className="title">Self-Appraisal Form</p>
           <hr />
           <div className="info-inputs">
-            <p>Name:</p>
+            <p>
+              <strong>Name:</strong>
+            </p>
             <p>{data.name}</p>
           </div>
           <div className="info-inputs">
-            <p>Phone Number:</p>
-            <p>{data.phoneno}</p>
-          </div>
-          <div className="info-inputs">
-            <p>E-mail:</p>
+            <p>
+              <strong>E-mail:</strong>
+            </p>
             <p>{email}</p>
           </div>
           <div className="info-inputs">
-            <p>Gender:</p>
-            <p>{data.gender}</p>
+            <p>
+              <strong>Phone Number:</strong>
+            </p>
+            <p>{data.phoneno}</p>
           </div>
           <div className="info-inputs">
-            <p>DOB:</p>
+            <p>
+              <strong>Gender:</strong>
+            </p>
+            <p>{data.gender}</p>
+            <p>
+              <strong>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Date of Birth:
+              </strong>
+            </p>
             <p>{data.dob}</p>
           </div>
           <div className="info-inputs">
-            <p>Category:</p>
+            <p>
+              <strong>Category:</strong>
+            </p>
             <p>{data.category}</p>
           </div>
           <div className="info-inputs">
-            <p>Education:</p>
+            <p>
+              <strong>Education:</strong>
+            </p>
             <p>{data.education}</p>
-          </div>
-          <div className="info-inputs">
-            <p>Year of Joining:</p>
-            <p>{data.yearofjoin}</p>
-          </div>
-          <div className="info-inputs">
-            <p>Designation:</p>
+            <p>
+              <strong>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;Designation:
+              </strong>
+            </p>
             <p>{data.designation}</p>
           </div>
           <div className="info-inputs">
-            <p>Department ID:</p>
+            <p>
+              <strong>Year of Joining:</strong>
+            </p>
+            <p>{data.yearofjoin}</p>
+            <p>
+              <strong>&emsp;&emsp;&emsp;Department ID:</strong>
+            </p>
             <p>{data.deptID}</p>
           </div>
           <hr />
           <div className="info-inputs">
-            <p>Lectures Taken:</p>
-            <p>32</p>
+            <p>
+              <strong>Research:</strong>
+            </p>
+            {data.research && Array.isArray(data.research) ? (
+              <p style={{ whiteSpace: "pre-line" }}>
+                {data.research.join("\n")}
+              </p>
+            ) : (
+              <p>{data.research}</p>
+            )}
           </div>
           <div className="info-inputs">
-            <p>Projects Led:</p>
-            <p>7</p>
+            <p>
+              <strong>Projects Led:</strong>
+            </p>
+            {data.projects && Array.isArray(data.projects) ? (
+              <p style={{ whiteSpace: "pre-line" }}>
+                {data.projects.join("\n")}
+              </p>
+            ) : (
+              <p>{data.projects}</p>
+            )}
           </div>
           <div className="info-inputs">
-            <p>Research Published:</p>
-            <p>2</p>
+            <p>
+              <strong>Subjects Taught:</strong>
+            </p>
+            {data.subjectstaught && Array.isArray(data.subjectstaught) ? (
+              <p style={{ whiteSpace: "pre-line" }}>
+                {data.subjectstaught.join("\n")}
+              </p>
+            ) : (
+              <p>{data.subjectstaught}</p>
+            )}
+          </div>
+          <div className="info-inputs">
+            <p>
+              <strong>Addition in course:</strong>
+            </p>
+            {data.courseaddition && Array.isArray(data.courseaddition) ? (
+              <p style={{ whiteSpace: "pre-line" }}>
+                {data.courseaddition.join("\n")}
+              </p>
+            ) : (
+              <p>{data.courseaddition}</p>
+            )}
+          </div>
+          <div className="info-inputs">
+            <p>
+              <strong>Teaching method adopted:</strong>
+            </p>
+            {data.teachingmethods && Array.isArray(data.teachingmethods) ? (
+              <p style={{ whiteSpace: "pre-line" }}>
+                {data.teachingmethods.join("\n")}
+              </p>
+            ) : (
+              <p>{data.teachingmethods}</p>
+            )}
+          </div>
+          <div className="info-inputs">
+            <p>
+              <strong>Avg Percentage of your class:</strong>
+            </p>
+            {data.percentage && Array.isArray(data.percentage) ? (
+              <p style={{ whiteSpace: "pre-line" }}>
+                {data.percentage.join("\n")}
+              </p>
+            ) : (
+              <p>{data.percentage}</p>
+            )}
+          </div>
+          <div className="info-inputs">
+            <p>
+              <strong>Any other Achievements:</strong>
+            </p>
+            {data.other && Array.isArray(data.other) ? (
+              <p style={{ whiteSpace: "pre-line" }}>{data.other.join("\n")}</p>
+            ) : (
+              <p>{data.other}</p>
+            )}
           </div>
           <hr />
         </div>

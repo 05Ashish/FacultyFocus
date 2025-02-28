@@ -32,7 +32,11 @@ export default function Dashboard({ FullNav, showFullNav }) {
       ) : currState === "Download" ? (
         <PdfDownload />
       ) : currState === "Add New Entry" ? (
-        <Entry />
+        <Entry
+          userData={userData}
+          setUserData={setUserData}
+          setcurrState={setcurrState}
+        />
       ) : currState === "Performance" ? (
         <>
           <Attendance />
