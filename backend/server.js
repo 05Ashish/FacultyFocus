@@ -7,6 +7,7 @@ import userLoginRouter from "./routes/userLoginRoute.js";
 import adminRegisterRouter from "./routes/adminRegisterRoute.js";
 import adminLoginRouter from "./routes/adminLoginRoute.js";
 import userUpdateRouter from "./routes/userUpdateRoute.js";
+import userFetchDataRoute from "./routes/userDataFetch.js";
 const app = express();
 const PORT = 8000;
 
@@ -25,6 +26,7 @@ app.use("/", userLoginRouter);
 app.use("/", adminRegisterRouter);
 app.use("/", adminLoginRouter);
 app.use("/", userUpdateRouter);
+app.use("/", userFetchDataRoute);
 
 app.listen(PORT, () => {
   console.log(`Server started at PORT: ${PORT}`);

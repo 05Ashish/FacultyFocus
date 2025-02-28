@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "./settings.css";
 
-export default function Settings({ email, setcurrState }) {
-  const [phoneno, setPhoneNo] = useState("");
-  const [dob, setDOB] = useState("");
-  const [designation, setDesignation] = useState("");
-  const [education, setEducation] = useState("");
-  const [gender, setGender] = useState("");
-  const [category, setCategory] = useState("");
-  const [yearofjoin, setYearofjoin] = useState("");
-  const [deptID, setDeptID] = useState("");
+export default function Settings({ email, setcurrState, userData }) {
+  const [phoneno, setPhoneNo] = useState(userData.phoneno);
+  const [dob, setDOB] = useState(userData.dob);
+  const [designation, setDesignation] = useState(userData.designation);
+  const [education, setEducation] = useState(userData.education);
+  const [gender, setGender] = useState(userData.gender);
+  const [category, setCategory] = useState(userData.category);
+  const [yearofjoin, setYearofjoin] = useState(userData.yearofjoin);
+  const [deptID, setDeptID] = useState(userData.deptID);
 
   const handleSubmit = async () => {
     await fetch("http://localhost:8000/user-update", {
@@ -17,9 +17,18 @@ export default function Settings({ email, setcurrState }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: email, yearofjoin: yearofjoin }),
+      body: JSON.stringify({
+        email: email,
+        yearofjoin: yearofjoin,
+        phoneno: phoneno,
+        gender: gender,
+        education: education,
+        designation: designation,
+        category: category,
+        deptID: deptID,
+        dob: dob,
+      }),
     });
-    console.log(yearofjoin);
     setcurrState("Profile");
   };
 

@@ -1,6 +1,6 @@
 import userDataModel from "../models/userdataModel.js";
 
-export const fetchUserData = async (req, res) => {
+export const setUserData = async (req, res) => {
   console.log(req.body);
   const UserData = await new userDataModel({
     name: req.body.name,

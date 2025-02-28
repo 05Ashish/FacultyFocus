@@ -10,6 +10,7 @@ import "./dashboard.css";
 
 export default function Dashboard({ FullNav, showFullNav }) {
   const [currState, setcurrState] = useState("Profile");
+  const [userData, setUserData] = useState([]);
   const urlParams = new URLSearchParams(window.location.search);
   // const name = urlParams.get("name");
   const email = urlParams.get("email");
@@ -17,9 +18,17 @@ export default function Dashboard({ FullNav, showFullNav }) {
   return (
     <div className="dashboard">
       {currState === "Profile" ? (
-        <Profile email={email} />
+        <Profile
+          email={email}
+          setcurrState={setcurrState}
+          setUserData={setUserData}
+        />
       ) : currState === "Settings" ? (
-        <Settings email={email} setcurrState={setcurrState} />
+        <Settings
+          email={email}
+          setcurrState={setcurrState}
+          userData={userData}
+        />
       ) : currState === "Download" ? (
         <PdfDownload />
       ) : currState === "Add New Entry" ? (
