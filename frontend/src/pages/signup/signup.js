@@ -21,7 +21,7 @@ export default function SignUp() {
       password={password}
     >
       <Step>
-        <h2>Welcome to TogetherFaculty!</h2>
+        <h2>Welcome to FacultyFocus!</h2>
         <p>Become a part of our Faculty Family!</p>
         <p>
           Existing user?
