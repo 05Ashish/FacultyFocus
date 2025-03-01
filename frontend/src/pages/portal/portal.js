@@ -1,24 +1,34 @@
 import react from "react";
 import { useState } from "react";
-import Profile from "../../components/profile/profile";
-import Settings from "../../components/settings/settings";
+import AdminProfile from "../../components/adminprofile/adminprofile";
+import AdminSettings from "../../components/adminsettings/adminsettings";
 import OptionsUsage from "../../components/options/optionsusage";
-import PdfDownload from "../../components/pdf/pdf";
-import Entry from "../../components/entry/entry";
-import Attendance from "../../components/chart/attendancechart";
+import AdminAnalytics from "../../components/adminanalytics/adminanalytics";
 import "./portal.css";
 
 export default function Portal({ FullNav, showFullNav }) {
   const [currState, setcurrState] = useState("Profile");
+  const [adminData, setAdminData] = useState([]);
+  const urlParams = new URLSearchParams(window.location.search);
+  const email = urlParams.get("email");
+  console.log(email);
   return (
     <div className="portal">
       {currState === "Profile" ? (
-        <Profile />
+        <AdminProfile
+          email={email}
+          setcurrState={setcurrState}
+          setAdminData={setAdminData}
+        />
       ) : currState === "Settings" ? (
-        <Settings />
+        <AdminSettings
+          email={email}
+          setcurrState={setcurrState}
+          adminData={adminData}
+        />
       ) : currState === "Performance" ? (
         <>
-          <Attendance />
+          <AdminAnalytics />
         </>
       ) : (
         <></>

@@ -133,7 +133,7 @@ export default function AdminRegisterStep({
                 </button>
               )}
               {isLastStep ? (
-                <Link to="/admin-portal">
+                <Link to={`/admin-portal?email=${email}`}>
                   {" "}
                   <button
                     onClick={isLastStep ? handleComplete : handleNext}

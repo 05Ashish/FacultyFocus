@@ -56,7 +56,7 @@ export default function Entry({ userData, setUserData, setcurrState }) {
     if (data.success) {
       setUserData((prevData) => ({
         ...prevData,
-        [fieldName]: [...prevData[fieldName], heading], // Append to state
+        [fieldName]: [...(prevData[fieldName] || []), heading], // Append to state
       }));
     }
     setUserData(userData);

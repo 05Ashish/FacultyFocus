@@ -12,7 +12,6 @@ export default function Dashboard({ FullNav, showFullNav }) {
   const [currState, setcurrState] = useState("Profile");
   const [userData, setUserData] = useState([]);
   const urlParams = new URLSearchParams(window.location.search);
-  // const name = urlParams.get("name");
   const email = urlParams.get("email");
   console.log(email);
   return (
@@ -30,7 +29,7 @@ export default function Dashboard({ FullNav, showFullNav }) {
           userData={userData}
         />
       ) : currState === "Download" ? (
-        <PdfDownload />
+        <PdfDownload userData={userData} />
       ) : currState === "Add New Entry" ? (
         <Entry
           userData={userData}

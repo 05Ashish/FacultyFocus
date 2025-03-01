@@ -84,7 +84,7 @@ export default function App() {
             element={<Dashboard FullNav={FullNav} showFullNav={showFullNav} />}
           />
           <Route
-            path="/admin-portal"
+            path="/admin-portal/*"
             element={<Portal FullNav={FullNav} showFullNav={showFullNav} />}
           />
         </Routes>

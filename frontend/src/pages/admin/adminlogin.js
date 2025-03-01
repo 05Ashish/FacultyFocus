@@ -19,7 +19,7 @@ export default function AdminLogin() {
     >
       <Step>
         <h4>ADMIN</h4>
-        <h2>Welcome back to TogetherFaculty!</h2>
+        <h2>Welcome back to FacultyFocus!</h2>
         <p>Please enter your login credentials.</p>
         <p>
           New user?

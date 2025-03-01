@@ -1,4 +1,5 @@
 import adminModel from "../models/adminRegisterModel.js";
+import { setAdminData } from "./admindataController.js";
 
 export const adminRegisterData = async (req, res) => {
   const Admin = await new adminModel({
@@ -8,6 +9,7 @@ export const adminRegisterData = async (req, res) => {
   });
   try {
     await Admin.save();
+    setAdminData(req, res);
     res.status(200).json({
       success: true,
     });

@@ -134,7 +134,7 @@ export default function Stepi({
                 </button>
               )}
               {isLastStep ? (
-                <Link to={`/dashboard?name=${name}&email=${email}`}>
+                <Link to={`/dashboard?email=${email}`}>
                   {" "}
                   <button
                     onClick={isLastStep ? handleComplete : handleNext}

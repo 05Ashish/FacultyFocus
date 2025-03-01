@@ -22,7 +22,7 @@ export default function AdminRegister() {
     >
       <Step>
         <h4>ADMIN</h4>
-        <h2>Welcome to TogetherFaculty!</h2>
+        <h2>Welcome to FacultyFocus!</h2>
         <p>Start managing your faculty!</p>
         <p>
           Existing user?
